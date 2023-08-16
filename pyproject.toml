@@ -11,12 +11,10 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = ">=3.10,<3.12"
 # *Automatically installed by other dependencies* pandas = "~2.0.0"
-scvi-tools = "^0.16.0"
-llvmlite = "^0.38.0"
+scvi-tools = "~1.0"
+llvmlite = "^0.40.0"
 scanpy = "~1.9.1"
 torch = "~2.0"
-# One of the dependencies requires nvcc, but this isn't automatically installed by the torch package
-nvidia-cuda-nvcc-cu11 = "~11.7.0" 
 torchtext = "~0.15.0"
 transformers = "^4.18.0"
 # *Automatically installed by previous dependencies* numba = "^0.55.1"
@@ -26,23 +24,25 @@ leidenalg = "^0.10.0"
 datasets = "^2.14.0"
 # *Automatically installed by previous dependencies* typing-extensions = "^4.2.0"
 # scib claims to require pandas<2, but does pandas>=2 actually break things?
-scib = "^1.1.3"
+scib = "~1.1.3"
 # flash-attn requires nvcc to be on the execution path. In a conda environment,
 # this can be easily installed with:
 # " conda install -c "nvidia/label/cuda-11.7.1" cuda-toolkit
 # packaging is required (but not declared) by flash-attn
 packaging = ">=23"
-flash-attn = "^2.0.1"
+flash-attn = "<2"
+# Needed for the example 
+ipython
 
 [tool.poetry.dev-dependencies]
-pytest = "^5.2"
-black = "^22.3.0"
-tensorflow = "^2.8.0"
-torch-geometric = "2.3.0"
-cell-gears = "^0.0.1"
-dcor = "~0.5.3"
-wandb = "^0.12.3"
-plotly = "^5.3.1"
+pytest = "~7.4"
+black = "~23.7"
+tensorflow = "~2.13"
+torch-geometric = "~2.3.0"
+cell-gears = "~0.0.4"
+dcor = "~0.6"
+wandb = "~0.15"
+plotly = "~5.16"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
